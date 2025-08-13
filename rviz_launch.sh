@@ -1,6 +1,6 @@
 #!/bin/bash
-
-if pgrep roscore >/dev/null; then
+pgrep roscore
+if [[ $? == 0 ]]; then
 	echo "roscore already running."
 else
 	echo "Starting roscore service..."
@@ -9,10 +9,10 @@ else
 fi
 
 ROBOT_HOST=192.168.1.34
-LAPTOP_IP=$(hostname -I | awk '{print $1}')
+WORKSTATION_IP=$(hostname -I | awk '{print $1}')
 PING_COUNT=4
 
-if [[ -z "LAPTOP_IP" ]]; then
+if [[ -z "WORKSTATION_IP" ]]; then
 	echo "Could not determine your local IP address."
 	echo "Make sure you're connected to the same network as $ROBOT_HOST."
 	exit 1

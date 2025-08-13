@@ -1,11 +1,11 @@
 #!/bin/bash
 
-$username=whoami
-sudo apt update
+username=$(whoami)
+apt update
 
 #Change repo to the name of the ros depository you want to install
-$repo=ros-noetic-desktop-full
-$name=noetic
+repo="ros-noetic-desktop-full"
+name="noetic"
 
 apt list $repo | grep installed
 
@@ -38,7 +38,7 @@ esac
 
 echo -e "\e[36mInstalling and updating rosdep...\e[0m"
 rosdep init
-rosdep update
+sudo -u $username rosdep update
 
 echo -e "\n\e[1;33mINITIAL SETUP COMPLETE. INSTALLING RVIZ...\e[0m"
 mkdir -p ./catkin_ws/src
@@ -56,16 +56,15 @@ if [[ $? != 0 ]]; then
         echo -e "\e[36mDone\e[0m"
 fi
 
-catkin_make
+sudo -u $username catkin_make
 
 #currently in ./catkin_ws
 
-
-grep "source $PWD/devel/setup.bash" ~/.bashrc >/dev/null || echo "source $PWD/devel/setup.bash" >> ~/.bashrc
+grep "source $PWD/devel/setup.bash" ~/.bashrc || echo "source $PWD/devel/setup.bash" >> ~/.bashrc
 
 #add aliases to ~/.bash_aliases
 cd ..
-grep "alias runrviz='$PWD/rviz_launch.sh'" ~/.bash_aliases >/dev/null || echo "alias runrviz='$PWD/rviz_launch.sh'" >> ~/.bash_aliases
+grep "alias runrviz='$PWD/rviz_launch.sh'" ~/.bash_aliases || echo "alias runrviz='$PWD/rviz_launch.sh'" >> ~/.bash_aliases
 
 source ~/.bashrc
 echo -e "\n\e[1;33mAll tasks completed. Use runrviz to run RViz.\e[0m"
