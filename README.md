@@ -1,6 +1,12 @@
 # ros1-one-click-installers
 A collection of shell scripts to ease the process of installing RViz and ROS1 on external Ubuntu computers.
 
+### PREREQUISITES:
+1. An **Ubuntu 20.04 LTS installation.** It _has_ to be 20.04, as that's the only OS that ROS1 runs on properly.
+2. A Hello Robot Stretch robot, preferably the Stretch RE1.
+3. **For using RViz:** an SSH connection to your robot. Virtual Studio Code's SSH extension pack is extremely helpful for remotely viewing the files on your robot.\
+[Here is a really great place to start using RViz.](https://docs.hello-robot.com/0.2/stretch-ros/stretch_navigation/)
+
 ## INSTRUCTIONS FOR INSTALLING:
 
 1. Download the .zip file.
