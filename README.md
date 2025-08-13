@@ -13,7 +13,7 @@ A collection of shell scripts to ease the process of installing RViz and ROS1 on
 ### Optional (kind of):
 7. Make sure that `source opt/ros/<noetic>/setup.bash` (replace <noetic> with the name of your ROS installation) is added to your .bashrc file. The script _should_ do this automatically, but check anyway.
 8. Just like step 7, check if `source /<path/to/catkin/workspace>/devel/setup.bash` is added to your .bashrc file.
-9. Check ~/.bash_aliases for `alias runrviz='/<path/to>/rviz_launch.sh`.
+9. Check ~/.bash_aliases for `alias runrviz='/<path/to>/rviz_launch.sh'`.
     - If you had to make any changes to either ~/.bashrc or ~/.bash_aliases, make sure that you **source** both before starting.
 
 10. You're done! Use runrviz to start RViz.
