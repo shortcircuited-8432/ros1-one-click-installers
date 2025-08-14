@@ -4,8 +4,8 @@ if [[ $? == 0 ]]; then
 	echo "roscore already running."
 else
 	echo "Starting roscore service..."
-	roscore &
-	wait
+	PID1=$!
+	wait $PID1
 fi
 
 #MAKE SURE TO CHANGE ROBOT_HOST TO YOUR ROBOT'S IP ADDRESS. THE DEFAULT WILL *NOT WORK*.
